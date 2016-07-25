@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Apartment</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="static/bootstrap.min.css" media="screen">
-</head>
-<body>
-	<div>
-		<h1>My Apartment</h1>
-		<br>
-		<p>Click <a href="/logout">here</a> to logout</p>
-		{% for message in get_flashed_messages() %}
-			{{message}}
-		{% endfor %}
-	</div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+	<h1>My Apartment</h1>
+	<br>
+	<p>Click <a href="/logout">here</a> to logout</p>
+	<br><br>
+	<h3>Posts: </h3>
+	{% for post in posts %}
+		<strong>Title: </strong> {{post.title}}<br>
+		<strong>Post: </strong> {{post.content}}<br><br>
+	{% endfor %}
+{% endblock %}
