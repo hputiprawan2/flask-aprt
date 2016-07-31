@@ -5,10 +5,11 @@ from flask_sqlalchemy import SQLAlchemy # = from flask.ext.sqlalchemy import SQL
 # import sqlite3
 
 app = Flask(__name__)
-app.secret_key = "xdfaskjmkd"
-app.database = "sample.db"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+# config
+import os
+app.config.from_object(os.environ['APP_SETTINGS'])
+print os.environ['APP_SETTINGS']
 
 # create the sqlalchemy object
 db = SQLAlchemy(app)
@@ -60,4 +61,4 @@ def logout():
 # 	return sqlite3.connect(app.database)	
 
 if __name__ == '__main__':
-	app.run(debug=True)	
+	app.run()	
