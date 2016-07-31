@@ -14,4 +14,4 @@ class BlogPost(db.Model):
 		self.content = content
 
 	def __repr__(self):
-		return 'title: {}'.format(self.title)		
+		return '{}: {}'.format(self.title, self.content)		
